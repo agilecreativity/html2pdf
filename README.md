@@ -1,76 +1,94 @@
-## CodeExporter
+## Html2Pdf
 
-Export source code for any type of programming language to pdf.
-Inspired by the [code_rippa][] gem.
+[![Gem Version](https://badge.fury.io/rb/html2pdf.svg)](http://badge.fury.io/rb/html2pdf)
 
-The gem rely on the power of multiple opensource tools
-
-- [Vim][] - for printing the code using the `:TOhtml` to print file
-  to html format
-- [Ghostscript][] - for combining multiple pdf files
-- [Pdfinfo][] - for extracting useful meta-data from the pdf for use in the header/footer
-- [Wkhtmltopdf][] - for converting file to PDF
-- [mdls][] - for extracting meta-data if the platform is OSX
+Convert multiple html or xhtml files to pdfs using the power of
+[Ghostscript][] and [Wkhtmltopdf][].
 
 ### Installation
 
 #### Mandatory Requirement
 
-- [Vim][] any recent version of Vim
 - [Ghostscript][]
-- [Pdfinfo][]
 - [Wkhtmltopdf][]
-- [mdls][] on OSX
 
-#### Other Gems
+This gem is built on top of my other gems
 
-This gem rely on some of the functionality that I built earlier.
-The list of gems that this gem is depend on are
-
-- [vim_printer][] gem
 - [agile_utils][] gem
 - [code_lister][] gem
 
 ### Dependencies
 
 - wkhtmltopdf (Linux/OSX)
-- pdfinfo (Linux/OSX)
-- mdls (OSX) for listing of meta-data information
 - Ghostscript (Linux/OSX)
 - OSX or Linux (no Windows sorry)
 
 ## Usage
 
 ```sh
-gem install code_exporter
+gem install html2pdf
 ```
+
 For list of usage type
 
 ```sh
-code_exporter
+html2pdf
 ```
+
 Which should give the following options
 
-```
-TODO: add sample output from `usage` here!
-```
-### Good snippets
-
-```ruby
-# check for installation of wkhtmltopdf on Linux/OSX
-if RUBY_PLATFORM =~ /linux/
-  executable = 'wkhtmltopdf_linux_386'
-elsif RUBY_PLATFORM =~ /darwin/
-  executable = 'wkhtmltopdf_darwin_386'
-else
-  raise "Invalid platform. Must be running linux or intel-based Mac OS."
-end
-
-executable = File.join(File.dirname(__FILE__), executable)
-
-system(executable + " " + $*.join(" "))
 
 ```
+Usage:
+html2pdf export [OPTIONS]
+
+Options:
+  -b, [--base-dir=BASE_DIR]                # Base directory
+                                           # Default: . (current directory)
+  -n, [--inc-words=one two three]          # List of words to be included in the result
+  -x, [--exc-words=one two three]          # List of words to be excluded from the result
+  -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
+                                           # Default: true
+  -r, [--recursive], [--no-recursive]      # Search for files recursively
+                                           # Default: true
+  -v, [--version], [--no-version]          # Display version information
+```
+
+### Example Usage
+
+- Convert all `xhtml` and `html` from `test/fixtures/samples` directory
+  recursively
+
+```
+html2pdf -b test/fixtures/samples -e html xhtml -r
+```
+
+Before the run
+
+```
+test/fixtures/samples/
+├── demo1_xxx.rb.xhtml
+├── demo2_xxx.rb.xhtml
+└── sub_dir
+    ├── demo3_xxx.rb.xhtml
+    └── demo4_xxx.rb.xhtml
+```
+
+After the above command is executed:
+
+```
+test/fixtures/samples/
+├── demo1_xxx.rb.xhtml
+├── demo1_xxx.rb.xhtml.pdf
+├── demo2_xxx.rb.xhtml
+├── demo2_xxx.rb.xhtml.pdf
+└── sub_dir
+    ├── demo3_xxx.rb.xhtml
+    ├── demo3_xxx.rb.xhtml.pdf
+    ├── demo4_xxx.rb.xhtml
+    └── demo4_xxx.rb.xhtml.pdf
+```
+
 ### Changelogs
 
 #### 0.0.1
@@ -85,14 +103,7 @@ system(executable + " " + $*.join(" "))
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-### Resources
-[Vim]: http://www.vim.org/
 [Ghostscript]: http://www.ghostscript.com/
-[Pdfinfo]: http://linux.about.com/library/cmd/blcmdl1_pdfinfo.htm
 [Wkhtmltopdf]: http://wkhtmltopdf.org/
-[mdls]: https://developer.apple.com/library/Mac/documentation/Darwin/Reference/ManPages/man1/mdls.1.html
-[code_rippa]: https://github.com/benjamintanweihao/code_rippa
-[code_rippa - slideshare]: http://www.slideshare.net/benjamintanweihao/code-rippa
-[vim_printer]: https://github.com/agilecreativity/vim_printer
 [agile_utils]: https://github.com/agilecreativity/agile_utils
 [code_lister]: https://github.com/agilecreativity/code_lister

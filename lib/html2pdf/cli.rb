@@ -2,50 +2,52 @@ require 'thor'
 require 'tmpdir'
 require 'fileutils'
 require_relative '../html2pdf'
-require_relative './utils'
-
 module Html2Pdf
-  include AgileUtils::Options
-  include CodeLister
-
   class CLI < Thor
     desc 'export', 'export html files to pdfs'
 
     method_option *AgileUtils::Options::BASE_DIR
-    method_option *AgileUtils::Options::EXTS
-    method_option *AgileUtils::Options::NON_EXTS
     method_option *AgileUtils::Options::INC_WORDS
     method_option *AgileUtils::Options::EXC_WORDS
     method_option *AgileUtils::Options::IGNORE_CASE
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
-    method_option *AgileUtils::Options::THEME
 
     def export
+      unless Html2Pdf::Utils.required_softwares?
+        fail 'You must have valid `wkhtmltopdf` and `ghostscript` installation'
+      end
+
       input_files = CodeLister.files base_dir: options[:base_dir],
                                      exts: %w(html xhtml),
                                      recursive: true
-      puts "FYI: input files: #{input_files}"
-      to_pdfs(input_files)
+      elapsed = AgileUtils::FileUtil.time do
+        Html2Pdf::Utils.to_pdfs(input_files)
+      end
+      puts "Convert files to pdfs took #{elapsed} ms"
     end
 
     desc 'usage', 'Display usage information'
     def usage
       puts <<-EOT
-      #{AgileUtils::Options.default_usage}
+Usage:
+  html2pdf export [OPTIONS]
+
+Options:
+  -b, [--base-dir=BASE_DIR]                # Base directory
+                                           # Default: . (current directory)
+  -n, [--inc-words=one two three]          # List of words to be included in the result
+  -n, [--exc-words=one two three]          # List of words to be included in the result
+  -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
+                                           # Default: true
+  -r, [--recursive], [--no-recursive]      # Search for files recursively
+                                           # Default: true
+  -v, [--version], [--no-version]          # Display version information
+
+export html files to pdfs
       EOT
     end
 
     default_task :usage
-
-    private
-
-    def to_pdfs(html_files)
-      elapsed = AgileUtils::FileUtil.time do
-        Html2Pdf::Utils.to_pdfs(html_files)
-      end
-      puts "Convert files to pdfs took #{elapsed} ms"
-    end
-
   end
 end

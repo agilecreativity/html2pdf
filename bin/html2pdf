@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/html2pdf/cli'
+require_relative '../lib/html2pdf'
 include Html2Pdf
-puts "FYI: your argument :#{ARGV}"
 Html2Pdf::CLI.start(ARGV)
