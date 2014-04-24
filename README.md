@@ -24,20 +24,15 @@ This gem is built on top of my other gems
 - OSX or Linux (no Windows sorry)
 
 ## Usage
-
 ```sh
 gem install html2pdf
 ```
-
 For list of usage type
 
 ```sh
 html2pdf
 ```
-
 Which should give the following options
-
-
 ```
 Usage:
 html2pdf export [OPTIONS]
@@ -53,18 +48,14 @@ Options:
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
 ```
-
 ### Example Usage
 
 - Convert all `xhtml` and `html` from `test/fixtures/samples` directory
   recursively
-
 ```
 html2pdf -b test/fixtures/samples -e html xhtml -r
 ```
-
 Before the run
-
 ```
 test/fixtures/samples/
 ├── demo1_xxx.rb.xhtml
@@ -73,9 +64,7 @@ test/fixtures/samples/
     ├── demo3_xxx.rb.xhtml
     └── demo4_xxx.rb.xhtml
 ```
-
 After the above command is executed:
-
 ```
 test/fixtures/samples/
 ├── demo1_xxx.rb.xhtml
@@ -88,6 +77,18 @@ test/fixtures/samples/
     ├── demo4_xxx.rb.xhtml
     └── demo4_xxx.rb.xhtml.pdf
 ```
+
+### Usage Tips
+
+This is my personal use case
+
+- Use [vim_printer][] which export any source code to list of (x)html files in
+a single tar.gzipped file.
+
+- Use the output from [vim_printer][] as input to this program so that you get
+the pdf version of it.
+
+- Then combine the generated pdf files using [pdfs2pdf][] gem to produce one pdf file
 
 ### Changelogs
 
@@ -107,3 +108,5 @@ test/fixtures/samples/
 [Wkhtmltopdf]: http://wkhtmltopdf.org/
 [agile_utils]: https://github.com/agilecreativity/agile_utils
 [code_lister]: https://github.com/agilecreativity/code_lister
+[vim_printer]: https://github.com/agilecreativity/vim_printer
+[pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf

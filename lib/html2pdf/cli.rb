@@ -35,9 +35,9 @@ Usage:
 
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
-                                           # Default: . (current directory)
+                                           # Default: /Users/agilecreativity/codes/github/html2pdf
   -n, [--inc-words=one two three]          # List of words to be included in the result
-  -n, [--exc-words=one two three]          # List of words to be included in the result
+  -x, [--exc-words=one two three]          # List of words to be excluded from the result
   -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
                                            # Default: true
   -r, [--recursive], [--no-recursive]      # Search for files recursively
