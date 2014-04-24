@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>~/Dropbox/spikes/code_exporter_original/spec/fixtures/demo2.xxx.rb.xhtml</title>
+<meta name="Generator" content="Vim/7.4" />
+<meta name="plugin-version" content="vim7.4_v1" />
+<meta name="syntax" content="ruby" />
+<meta name="settings" content="no_progress,number_lines,dynamic_folds,no_pre,use_xhtml,use_css,expand_tabs,line_ids,prevent_copy=" />
+<meta name="colorscheme" content="Tomorrow-Night" />
+<style type="text/css">
+
+body { color: #bcbcbc; background-color: #262626; font-family: monospace; }
+* { font-size: 1em; }
+.Operator { color: #87afaf; }
+.rubySymbol { color: #afaf5f; }
+.rubyConstant { color: #ffd787; }
+.rubyInclude { color: #87afaf; }
+.rubyStringDelimiter { color: #afaf5f; }
+.Function { color: #87afaf; }
+.Define { color: #af87af; }
+.FoldColumn { color: #00ffff; background-color: #262626; padding-bottom: 1px; }
+.LineNr { color: #4e4e4e; }
+.Comment { color: #8a8a8a; }
+.String { color: #afaf5f; }
+.FoldColumn { text-decoration: none; white-space: pre; }
+.open-fold   .Folded      { display: none; }
+.open-fold   .fulltext      { display: inline; }
+.open-fold   .toggle-open   { display: none; }
+.closed-fold .toggle-closed { display: inline; }
+
+.closed-fold .fulltext      { display: none; }
+.closed-fold .Folded      { display: inline; }
+.closed-fold .toggle-open   { display: inline; }
+.closed-fold .toggle-closed { display: none; }
+
+</style>
+
+<script type='text/javascript'>
+//<![CDATA[
+
+function toggleFold(objID)
+{
+  var fold;
+  fold = document.getElementById(objID);
+  if(fold.className == 'closed-fold')
+  {
+    fold.className = 'open-fold';
+  }
+  else if (fold.className == 'open-fold')
+  {
+    fold.className = 'closed-fold';
+  }
+}
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+
+  /* navigate upwards in the DOM tree to open all folds containing the line */
+  var node = lineElem;
+  while (node && node.id != 'vimCodeElement')
+  {
+    if (node.className == 'closed-fold')
+    {
+      node.className = 'open-fold';
+    }
+    node = node.parentNode;
+  }
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+//]]>
+</script>
+</head>
+<body onload='JumpToLine();'>
+<div id='vimCodeElement'>
+<span id="L1" class="LineNr">&#160;1&#160;</span><span class="Comment"># file: spec/fixtures/demo2.rb</span><br />
+<span id="L2" class="LineNr">&#160;2&#160;</span><span class="Comment"># from: <a href="https://github.com/radar/guides/blob/master/gem-development/foodie/lib/foodie/cli.rb">https://github.com/radar/guides/blob/master/gem-development/foodie/lib/foodie/cli.rb</a></span><br />
+<span id="L3" class="LineNr">&#160;3&#160;</span><span class="rubyInclude">require</span>&#160;<span class="rubyStringDelimiter">'</span><span class="String">thor</span><span class="rubyStringDelimiter">'</span><br />
+<span id="L4" class="LineNr">&#160;4&#160;</span><span class="rubyInclude">require</span>&#160;<span class="rubyStringDelimiter">'</span><span class="String">foodie</span><span class="rubyStringDelimiter">'</span><br />
+<span id="L5" class="LineNr">&#160;5&#160;</span><span class="rubyInclude">require</span>&#160;<span class="rubyStringDelimiter">'</span><span class="String">foodie/generators/recipe</span><span class="rubyStringDelimiter">'</span><br />
+<span id="L6" class="LineNr">&#160;6&#160;</span><br />
+<span id="L7" class="LineNr">&#160;7&#160;</span><span class="Define">module</span>&#160;<span class="rubyConstant">Foodie</span><br />
+<span id="L8" class="LineNr">&#160;8&#160;</span>&#160;&#160;<span class="Define">class</span>&#160;<span class="rubyConstant">CLI</span>&#160;&lt;&#160;<span class="rubyConstant">Thor</span><br />
+<span id="L9" class="LineNr">&#160;9&#160;</span>&#160;&#160;&#160;&#160;desc&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">portray ITEM</span><span class="rubyStringDelimiter">&quot;</span>,&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">Determines if a piece of food is gross or delicious</span><span class="rubyStringDelimiter">&quot;</span><br />
+<span id="L10" class="LineNr">10&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">def</span>&#160;<span class="Function">portray</span>(name)<br />
+<span id="L11" class="LineNr">11&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;puts&#160;<span class="rubyConstant">Foodie</span><span class="Operator">::</span><span class="rubyConstant">Food</span>.portray(name)<br />
+<span id="L12" class="LineNr">12&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">end</span><br />
+<span id="L13" class="LineNr">13&#160;</span><br />
+<span id="L14" class="LineNr">14&#160;</span>&#160;&#160;&#160;&#160;desc&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">pluralize</span><span class="rubyStringDelimiter">&quot;</span>,&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">Pluralizes a word</span><span class="rubyStringDelimiter">&quot;</span><br />
+<span id="L15" class="LineNr">15&#160;</span>&#160;&#160;&#160;&#160;method_option&#160;<span class="rubySymbol">:word</span>,&#160;<span class="rubySymbol">:aliases</span>&#160;=&gt;&#160;<span class="rubySymbol">:word</span><br />
+<span id="L16" class="LineNr">16&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">def</span>&#160;<span class="Function">pluralize</span><br />
+<span id="L17" class="LineNr">17&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;puts&#160;<span class="rubyConstant">Foodie</span><span class="Operator">::</span><span class="rubyConstant">Food</span>.pluralize(options<span class="Operator">[</span><span class="rubySymbol">:word</span><span class="Operator">]</span>)<br />
+<span id="L18" class="LineNr">18&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">end</span><br />
+<span id="L19" class="LineNr">19&#160;</span><br />
+<span id="L20" class="LineNr">20&#160;</span>&#160;&#160;&#160;&#160;desc&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">recipe</span><span class="rubyStringDelimiter">&quot;</span>,&#160;<span class="rubyStringDelimiter">&quot;</span><span class="String">Generates a recipe scaffold</span><span class="rubyStringDelimiter">&quot;</span><br />
+<span id="L21" class="LineNr">21&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">def</span>&#160;<span class="Function">recipe</span>(group, name)<br />
+<span id="L22" class="LineNr">22&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span class="rubyConstant">Foodie</span><span class="Operator">::</span><span class="rubyConstant">Generators</span><span class="Operator">::</span><span class="rubyConstant">Recipe</span>.start([group, name])<br />
+<span id="L23" class="LineNr">23&#160;</span>&#160;&#160;&#160;&#160;<span class="Define">end</span><br />
+<span id="L24" class="LineNr">24&#160;</span>&#160;&#160;<span class="Define">end</span><br />
+<span id="L25" class="LineNr">25&#160;</span><span class="Define">end</span><br />
+</div>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
