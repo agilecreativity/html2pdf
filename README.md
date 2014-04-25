@@ -92,6 +92,11 @@ the pdf version of it.
 
 ### Changelogs
 
+#### 0.0.2
+
+- Use [agile_utils][] to 0.0.5
+- Fix minor error when using --version
+
 #### 0.0.1
 
 - Initial release

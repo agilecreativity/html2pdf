@@ -14,11 +14,18 @@ module Html2Pdf
     method_option *AgileUtils::Options::VERSION
 
     def export
+      opts = options.symbolize_keys
+
       unless Html2Pdf::Utils.required_softwares?
         fail 'You must have valid `wkhtmltopdf` and `ghostscript` installation'
       end
 
-      input_files = CodeLister.files base_dir: options[:base_dir],
+      if opts[:version]
+        puts "You are using Html2Pdf version #{Html2Pdf::VERSION}"
+        exit
+      end
+
+      input_files = CodeLister.files base_dir: opts[:base_dir],
                                      exts: %w(html xhtml),
                                      recursive: true
       elapsed = AgileUtils::FileUtil.time do
@@ -35,7 +42,7 @@ Usage:
 
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
-                                           # Default: /Users/agilecreativity/codes/github/html2pdf
+                                           # Default: . (current directory)
   -n, [--inc-words=one two three]          # List of words to be included in the result
   -x, [--exc-words=one two three]          # List of words to be excluded from the result
   -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
