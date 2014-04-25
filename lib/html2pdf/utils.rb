@@ -48,7 +48,7 @@ module Html2Pdf
           "#{filename}.pdf",
           '> /dev/null']
         _stdin, _stderr, status = Open3.capture3(command.join(' '))
-        puts "FYI: to_pdf command: #{command.join(' ')}"
+        # puts "FYI: to_pdf command: #{command.join(' ')}"
         # Note: may be log it and continue
         fail "Problem processing #{filename}" unless status.success?
       end
