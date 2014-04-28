@@ -17,5 +17,7 @@ test/version_tmp
 tmp
 # ctags
 tags
-# generated file
+# Custom ignore files
 output.tar.gz
+html2pdf-output.tar.gz
+changelogs.txt

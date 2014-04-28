@@ -4,7 +4,7 @@ require 'fileutils'
 require_relative '../html2pdf'
 module Html2Pdf
   class CLI < Thor
-    desc 'export', 'export html files to pdfs'
+    desc 'export', 'export multiple html files to pdfs'
 
     method_option *AgileUtils::Options::BASE_DIR
     method_option *AgileUtils::Options::INC_WORDS
@@ -16,7 +16,7 @@ module Html2Pdf
     def export
       opts = options.symbolize_keys
 
-      unless Html2Pdf::Utils.required_softwares?
+      unless Html2Pdf::Utils.softwares_installed?
         fail 'You must have valid `wkhtmltopdf` and `ghostscript` installation'
       end
 
@@ -31,7 +31,13 @@ module Html2Pdf
       elapsed = AgileUtils::FileUtil.time do
         Html2Pdf::Utils.to_pdfs(input_files)
       end
+
+      generated_files = AgileUtils::FileUtil.add_suffix(input_files, 'pdf')
+      AgileUtils::FileUtil.tar_gzip_files(generated_files, 'html2pdf-output.tar.gz')
+      AgileUtils::FileUtil.delete(generated_files)
+
       puts "Convert files to pdfs took #{elapsed} ms"
+      puts "Your final output is #{File.absolute_path('html2pdf-output.tar.gz')}"
     end
 
     desc 'usage', 'Display usage information'
@@ -51,7 +57,7 @@ Options:
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
 
-export html files to pdfs
+export multiple html files to pdfs
       EOT
     end
 

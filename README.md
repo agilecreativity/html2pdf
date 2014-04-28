@@ -32,7 +32,9 @@ For list of usage type
 ```sh
 html2pdf
 ```
+
 Which should give the following options
+
 ```
 Usage:
 html2pdf export [OPTIONS]
@@ -48,12 +50,13 @@ Options:
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
 ```
+
 ### Example Usage
 
 - Convert all `xhtml` and `html` from `test/fixtures/samples` directory
   recursively
 ```
-html2pdf -b test/fixtures/samples -e html xhtml -r
+html2pdf -b test/fixtures/samples -r
 ```
 Before the run
 ```
@@ -65,16 +68,16 @@ test/fixtures/samples/
     └── demo4_xxx.rb.xhtml
 ```
 After the above command is executed:
+
+You should get the output `html2pdf-output.tar.gz`
+which contain the pdf version of the input files above.
+e.g.
+
 ```
-test/fixtures/samples/
-├── demo1_xxx.rb.xhtml
 ├── demo1_xxx.rb.xhtml.pdf
-├── demo2_xxx.rb.xhtml
 ├── demo2_xxx.rb.xhtml.pdf
 └── sub_dir
-    ├── demo3_xxx.rb.xhtml
     ├── demo3_xxx.rb.xhtml.pdf
-    ├── demo4_xxx.rb.xhtml
     └── demo4_xxx.rb.xhtml.pdf
 ```
 
@@ -92,9 +95,18 @@ the pdf version of it.
 
 ### Changelogs
 
+#### 0.0.3
+
+- Update [agile_utils][] to 0.0.8
+- Update [code_lister][] to 0.0.7
+- Compress generated pdf files to one single tar.gzip file
+- Fix bug in softwares_installed? method
+- Remove the TODOs.md
+
 #### 0.0.2
 
 - Use [agile_utils][] to 0.0.5
+
 - Fix minor error when using --version
 
 #### 0.0.1
