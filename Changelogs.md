@@ -1,5 +1,10 @@
 ### Html2Pdf - Changelogs
 
+#### 0.0.5
+
+- Add :rubocop to default rake task
+- Update [minitest][] to 5.3
+
 #### 0.0.4
 
 - Update [agile_utils][] to 0.0.9
@@ -29,3 +34,4 @@
 [code_lister]: https://github.com/agilecreativity/code_lister
 [gemnasium]: https://gemnasium.com/agilecreativity/html2pdf
 [codeclimate]: https://codeclimate.com/github/agilecreativity/html2pdf
+[minitest]: https://github.com/seattlerb/minitest
