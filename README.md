@@ -1,6 +1,8 @@
 ## Html2Pdf
 
 [![Gem Version](https://badge.fury.io/rb/html2pdf.svg)](http://badge.fury.io/rb/html2pdf)
+[![Dependency Status](https://gemnasium.com/agilecreativity/html2pdf.png)](https://gemnasium.com/agilecreativity/html2pdf)
+[![Code Climate](https://codeclimate.com/github/agilecreativity/html2pdf.png)](https://codeclimate.com/github/agilecreativity/html2pdf)
 
 Convert multiple html or xhtml files to pdfs using the power of
 [Ghostscript][] and [Wkhtmltopdf][].
@@ -93,26 +95,6 @@ the pdf version of it.
 
 - Then combine the generated pdf files using [pdfs2pdf][] gem to produce one pdf file
 
-### Changelogs
-
-#### 0.0.3
-
-- Update [agile_utils][] to 0.0.8
-- Update [code_lister][] to 0.0.7
-- Compress generated pdf files to one single tar.gzip file
-- Fix bug in softwares_installed? method
-- Remove the TODOs.md
-
-#### 0.0.2
-
-- Use [agile_utils][] to 0.0.5
-
-- Fix minor error when using --version
-
-#### 0.0.1
-
-- Initial release
-
 ### Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/code_exporter/fork )
@@ -127,3 +109,5 @@ the pdf version of it.
 [code_lister]: https://github.com/agilecreativity/code_lister
 [vim_printer]: https://github.com/agilecreativity/vim_printer
 [pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf
+[gemnasium]: https://gemnasium.com/agilecreativity/html2pdf
+[codeclimate]: https://codeclimate.com/github/agilecreativity/html2pdf
