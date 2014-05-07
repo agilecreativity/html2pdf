@@ -1,5 +1,10 @@
 ### Html2Pdf - Changelogs
 
+#### 0.0.6
+
+- Remove the need to have 'Ghostscript' installation
+- Update the gemspec file
+
 #### 0.0.5
 
 - Add :rubocop to default rake task

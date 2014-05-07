@@ -3,39 +3,34 @@
 [![Gem Version](https://badge.fury.io/rb/html2pdf.svg)](http://badge.fury.io/rb/html2pdf)
 [![Dependency Status](https://gemnasium.com/agilecreativity/html2pdf.png)](https://gemnasium.com/agilecreativity/html2pdf)
 [![Code Climate](https://codeclimate.com/github/agilecreativity/html2pdf.png)](https://codeclimate.com/github/agilecreativity/html2pdf)
+[![Endorse](https://api.coderwall.com/agilecreativity/endorsecount.png)](https://coderwall.com/agilecreativity)
 
-Convert multiple html or xhtml files to pdfs using the power of
-[Ghostscript][] and [Wkhtmltopdf][].
+Convert multiple html or xhtml files to pdfs using the power of [Wkhtmltopdf][].
 
 ### Installation
 
-#### Mandatory Requirement
+### Mandatory Requirement
 
-- [Ghostscript][]
-- [Wkhtmltopdf][]
-
-This gem is built on top of my other gems
-
-- [agile_utils][] gem
-- [code_lister][] gem
+- [Wkhtmltopdf][] - please follow the simple instruction on [https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF][]
 
 ### Dependencies
 
 - wkhtmltopdf (Linux/OSX)
-- Ghostscript (Linux/OSX)
-- OSX or Linux (no Windows sorry)
+- OSX or Linux
 
 ## Usage
+
 ```sh
 gem install html2pdf
 ```
+
 For list of usage type
 
 ```sh
 html2pdf
 ```
 
-Which should give the following options
+Which should give the following output
 
 ```
 Usage:
@@ -103,11 +98,9 @@ the pdf version of it.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-[Ghostscript]: http://www.ghostscript.com/
 [Wkhtmltopdf]: http://wkhtmltopdf.org/
-[agile_utils]: https://github.com/agilecreativity/agile_utils
-[code_lister]: https://github.com/agilecreativity/code_lister
 [vim_printer]: https://github.com/agilecreativity/vim_printer
 [pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf
 [gemnasium]: https://gemnasium.com/agilecreativity/html2pdf
 [codeclimate]: https://codeclimate.com/github/agilecreativity/html2pdf
+[https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF]: https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF

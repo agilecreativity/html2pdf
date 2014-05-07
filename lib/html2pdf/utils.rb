@@ -44,7 +44,7 @@ module Html2Pdf
       # Check and verify that the proper softwares are available.
       #
       def softwares_installed?
-        AgileUtils::Helper.which('wkhtmltopdf') && AgileUtils::Helper.which('gs')
+        AgileUtils::Helper.which('wkhtmltopdf')
       end
     end
   end

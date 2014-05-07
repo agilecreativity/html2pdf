@@ -8,13 +8,21 @@ Gem::Specification.new do |spec|
   spec.version       = Html2Pdf::VERSION
   spec.authors       = ['Burin Choomnuan']
   spec.email         = ['agilecreativity@gmail.com']
-  spec.summary       = %q{Export any list of html or xhtml files to pdfs}
-  spec.description   = %q{Batch export html files to pdfs}
+  spec.summary       = %q(Export html or xhtml file to pdfs with using the power of 'wkhtmltopdf')
+  spec.description   = %q(Export html or xhtml file to pdfs with 'wkhtmltopdf')
   spec.homepage      = 'https://github.com/agilecreativity/html2pdf'
   spec.license       = 'MIT'
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = Dir.glob('{bin,lib}/**/*') + %w(Gemfile
+                                                       Rakefile
+                                                       html2pdf.gemspec
+                                                       README.md
+                                                       CHANGELOGS.md
+                                                       LICENSE
+                                                       .rubocop.yml
+                                                       .gitignore
+                                                       rubocop-todo.yml)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.test_files    = Dir.glob('{test}/**/*')
   spec.require_paths = ["lib"]
   spec.add_runtime_dependency 'thor'
   spec.add_runtime_dependency 'agile_utils', '~> 0.0.9'
@@ -25,11 +33,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard', '~> 2.6'
   spec.add_development_dependency 'guard-minitest', '~> 2.2'
   spec.add_development_dependency 'minitest', '~> 5.3'
-  spec.add_development_dependency 'minitest-filesystem', '~> 1.2.0'
   spec.add_development_dependency 'minitest-spec-context', '~> 0.0.3'
   spec.add_development_dependency 'pry', '~> 0.9'
   spec.add_development_dependency 'rake', '~> 10.1'
   spec.add_development_dependency 'rubocop', '~> 0.20'
   spec.add_development_dependency 'yard', '~> 0.8'
-
 end
