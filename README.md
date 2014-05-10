@@ -1,17 +1,20 @@
 ## Html2Pdf
 
-[![Gem Version](https://badge.fury.io/rb/html2pdf.svg)](http://badge.fury.io/rb/html2pdf)
-[![Dependency Status](https://gemnasium.com/agilecreativity/html2pdf.png)](https://gemnasium.com/agilecreativity/html2pdf)
-[![Code Climate](https://codeclimate.com/github/agilecreativity/html2pdf.png)](https://codeclimate.com/github/agilecreativity/html2pdf)
-[![Endorse](https://api.coderwall.com/agilecreativity/endorsecount.png)](https://coderwall.com/agilecreativity)
+[![Gem Version](https://badge.fury.io/rb/html2pdf.svg)][gem]
+[![Dependency Status](https://gemnasium.com/agilecreativity/html2pdf.png)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/agilecreativity/html2pdf.png)][codeclimate]
 
-Convert multiple html or xhtml files to pdfs using the power of [Wkhtmltopdf][].
+[gemnasium]: https://gemnasium.com/agilecreativity/html2pdf
+[codeclimate]: https://codeclimate.com/github/agilecreativity/html2pdf
+[gem]: http://badge.fury.io/rb/html2pdf
+
+Convert multiple html or xhtml files to pdfs using the power of [wkhtmltopdf][].
 
 ### Installation
 
 ### Mandatory Requirement
 
-- [Wkhtmltopdf][] - please follow the simple instruction on [https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF][]
+- [wkhtmltopdf][] - please see [wkhtmltopdf installation][] for detail
 
 ### Dependencies
 
@@ -92,15 +95,14 @@ the pdf version of it.
 
 ### Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/code_exporter/fork )
+1. Fork it ( http://github.com/agilecreativity/html2pdf/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-[Wkhtmltopdf]: http://wkhtmltopdf.org/
 [vim_printer]: https://github.com/agilecreativity/vim_printer
 [pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf
-[gemnasium]: https://gemnasium.com/agilecreativity/html2pdf
-[codeclimate]: https://codeclimate.com/github/agilecreativity/html2pdf
-[https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF]: https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF
+[wkhtmltopdf]: http://wkhtmltopdf.org/
+[wkhtmltopdf installation]: https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF
+
