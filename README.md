@@ -42,10 +42,6 @@ html2pdf export [OPTIONS]
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
                                            # Default: . (current directory)
-  -n, [--inc-words=one two three]          # List of words to be included in the result
-  -x, [--exc-words=one two three]          # List of words to be excluded from the result
-  -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
-                                           # Default: true
   -r, [--recursive], [--no-recursive]      # Search for files recursively
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
@@ -56,7 +52,7 @@ Options:
 - Convert all `xhtml` and `html` from `test/fixtures/samples` directory
   recursively
 ```
-html2pdf -b test/fixtures/samples -r
+html2pdf export -b test/fixtures/samples -r
 ```
 Before the run
 ```

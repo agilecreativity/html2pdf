@@ -18,5 +18,4 @@ tmp
 # ctags
 tags
 # Custom ignore files
-output.tar.gz
 html2pdf-output.tar.gz

@@ -5,18 +5,13 @@ require_relative '../html2pdf'
 module Html2Pdf
   class CLI < Thor
     desc 'export', 'export multiple html files to pdfs'
-
     method_option *AgileUtils::Options::BASE_DIR
-    method_option *AgileUtils::Options::INC_WORDS
-    method_option *AgileUtils::Options::EXC_WORDS
-    method_option *AgileUtils::Options::IGNORE_CASE
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
-
     def export
       opts = options.symbolize_keys
 
-      unless Html2Pdf::Utils.softwares_installed?
+      unless Html2Pdf.softwares_installed?
         fail 'You must have valid `wkhtmltopdf` and `ghostscript` installation'
       end
 
@@ -29,7 +24,7 @@ module Html2Pdf
                                      exts: %w(html xhtml),
                                      recursive: true
       elapsed = AgileUtils::FileUtil.time do
-        Html2Pdf::Utils.to_pdfs(input_files)
+        Html2Pdf.to_pdfs(input_files)
       end
 
       generated_files = AgileUtils::FileUtil.add_suffix(input_files, 'pdf')
@@ -49,10 +44,6 @@ Usage:
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
                                            # Default: . (current directory)
-  -n, [--inc-words=one two three]          # List of words to be included in the result
-  -x, [--exc-words=one two three]          # List of words to be excluded from the result
-  -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
-                                           # Default: true
   -r, [--recursive], [--no-recursive]      # Search for files recursively
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information

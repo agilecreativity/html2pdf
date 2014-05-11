@@ -4,10 +4,10 @@ require 'active_support/inflector'
 module Foodie
   class Food
     def self.portray(food)
-      if food.downcase == "broccoli"
-        "Gross!"
+      if food.downcase == 'broccoli'
+        'Gross!'
       else
-        "Delicious!"
+        'Delicious!'
       end
     end
 

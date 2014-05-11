@@ -1,5 +1,10 @@
 ### Html2Pdf - Changelogs
 
+#### 0.0.7
+
+- Code cleanup
+- Simplify the CLI by remove some options
+
 #### 0.0.6
 
 - Remove the need to have 'Ghostscript' installation
