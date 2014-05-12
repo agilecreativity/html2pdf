@@ -1,4 +1,9 @@
 ### Html2Pdf - Changelogs
+
+#### 0.1.1
+
+- Remove 'ghostscript' from the required software in error message
+
 #### 0.1.0
 
 - Use the [Semantic Versioning][] release scheme

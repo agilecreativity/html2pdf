@@ -12,7 +12,7 @@ module Html2Pdf
       opts = options.symbolize_keys
 
       unless Html2Pdf.softwares_installed?
-        fail 'You must have valid `wkhtmltopdf` and `ghostscript` installation'
+        fail 'You must have valid `wkhtmltopdf` installation'
       end
 
       if opts[:version]
