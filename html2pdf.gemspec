@@ -24,9 +24,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = Dir.glob('{test}/**/*')
   spec.require_paths = ['lib']
-  spec.add_runtime_dependency 'thor', '~> 0.19.1'
-  spec.add_runtime_dependency 'agile_utils', '~> 0.0.9'
-  spec.add_runtime_dependency 'code_lister', '~> 0.0.9'
+  spec.add_runtime_dependency 'thor', '~> 0.19'
+  spec.add_runtime_dependency 'agile_utils', '~> 0.1'
+  spec.add_runtime_dependency 'code_lister', '~> 0.1'
   spec.add_development_dependency 'awesome_print', '~> 1.2'
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'gem-ctags', '~> 1.0'

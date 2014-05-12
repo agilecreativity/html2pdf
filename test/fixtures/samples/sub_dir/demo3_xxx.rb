@@ -4,12 +4,12 @@ require 'thor/group'
 module Foodie
   module Generators
     class Recipe < Thor::Group
-      argument :group, :type => :string
-      argument :name, :type => :string
+      argument :group, type: :string
+      argument :name, type: :string
       include Thor::Actions
 
       def self.source_root
-        File.dirname(__FILE__) + "/recipe"
+        File.dirname(__FILE__) + '/recipe'
       end
 
       def create_group
@@ -17,8 +17,8 @@ module Foodie
       end
 
       def copy_recipe
-        template("recipe.txt", "#{group}/#{name}.txt")
+        template('recipe.txt', "#{group}/#{name}.txt")
       end
     end
   end
-en
+end

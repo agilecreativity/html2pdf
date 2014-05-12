@@ -1,4 +1,4 @@
-## Html2Pdf
+## html2pdf
 
 [![Gem Version](https://badge.fury.io/rb/html2pdf.svg)][gem]
 [![Dependency Status](https://gemnasium.com/agilecreativity/html2pdf.png)][gemnasium]
@@ -9,6 +9,8 @@
 [gem]: http://badge.fury.io/rb/html2pdf
 
 Convert multiple html or xhtml files to pdfs using the power of [wkhtmltopdf][].
+
+Note: starting from version `0.1.0` this gem will be release based on [Semantic Versioning][] convention.
 
 ### Installation
 
@@ -101,4 +103,4 @@ the pdf version of it.
 [pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf
 [wkhtmltopdf]: http://wkhtmltopdf.org/
 [wkhtmltopdf installation]: https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF
-
+[Semantic Versioning]: http://semver.org
