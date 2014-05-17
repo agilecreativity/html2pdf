@@ -1,6 +1,6 @@
 # file: spec/fixtures/sub-dir/demo3.xxx.rb
 # from: https://github.com/radar/guides/blob/master/gem-development/foodie/lib/foodie/generators/recipe.rb
-require 'thor/group'
+require "thor/group"
 module Foodie
   module Generators
     class Recipe < Thor::Group
@@ -9,7 +9,7 @@ module Foodie
       include Thor::Actions
 
       def self.source_root
-        File.dirname(__FILE__) + '/recipe'
+        File.dirname(__FILE__) + "/recipe"
       end
 
       def create_group
@@ -17,7 +17,7 @@ module Foodie
       end
 
       def copy_recipe
-        template('recipe.txt', "#{group}/#{name}.txt")
+        template("recipe.txt", "#{group}/#{name}.txt")
       end
     end
   end

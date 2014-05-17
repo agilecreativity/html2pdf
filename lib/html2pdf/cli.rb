@@ -1,10 +1,10 @@
-require 'thor'
-require 'tmpdir'
-require 'fileutils'
-require_relative '../html2pdf'
+require "thor"
+require "tmpdir"
+require "fileutils"
+require_relative "../html2pdf"
 module Html2Pdf
   class CLI < Thor
-    desc 'export', 'export multiple html files to pdfs'
+    desc "export", "export multiple html files to pdfs"
     method_option *AgileUtils::Options::BASE_DIR
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
@@ -12,7 +12,7 @@ module Html2Pdf
       opts = options.symbolize_keys
 
       unless Html2Pdf.softwares_installed?
-        fail 'You must have valid `wkhtmltopdf` installation'
+        fail "You must have valid `wkhtmltopdf` installation"
       end
 
       if opts[:version]
@@ -21,25 +21,25 @@ module Html2Pdf
       end
 
       input_files = CodeLister.files base_dir: opts[:base_dir],
-                                     exts: %w(html xhtml),
+                                     exts: %w[html xhtml],
                                      recursive: true
       elapsed = AgileUtils::FileUtil.time do
         Html2Pdf.to_pdfs(input_files)
       end
 
-      generated_files = AgileUtils::FileUtil.add_suffix(input_files, 'pdf')
-      AgileUtils::FileUtil.tar_gzip_files(generated_files, 'html2pdf-output.tar.gz')
+      generated_files = AgileUtils::FileUtil.add_suffix(input_files, "pdf")
+      AgileUtils::FileUtil.tar_gzip_files(generated_files, "html2pdf-output.tar.gz")
       AgileUtils::FileUtil.delete(generated_files)
 
       puts "Convert files to pdfs took #{elapsed} ms"
-      puts "Your final output is #{File.absolute_path('html2pdf-output.tar.gz')}"
+      puts "Your final output is #{File.absolute_path("html2pdf-output.tar.gz")}"
     end
 
-    desc 'usage', 'Display usage information'
+    desc "usage", "Display usage information"
     def usage
       puts <<-EOT
 Usage:
-  html2pdf export [OPTIONS]
+  html2pdf
 
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory

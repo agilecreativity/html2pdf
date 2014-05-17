@@ -19,3 +19,4 @@ tmp
 tags
 # Custom ignore files
 html2pdf-output.tar.gz
+.ruby-version

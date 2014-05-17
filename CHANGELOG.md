@@ -1,5 +1,10 @@
 ### Html2Pdf - Changelogs
 
+#### 0.1.2
+
+- Simplify the CLI
+- Style cleanup with rubocop
+
 #### 0.1.1
 
 - Remove 'ghostscript' from the required software in error message

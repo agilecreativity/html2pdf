@@ -1,6 +1,6 @@
-require 'open3'
-require 'fileutils'
-require_relative '../html2pdf'
+require "open3"
+require "fileutils"
+require_relative "../html2pdf"
 
 module Html2Pdf
   class << self
@@ -21,29 +21,29 @@ module Html2Pdf
     def to_pdf(filename)
       fail "Invalid input file #{filename}" unless File.exist?(filename)
       command = [
-        'wkhtmltopdf',
-        '--margin-top 4',
-        '--margin-bottom 4',
-        '--margin-left 4',
-        '--margin-right 4',
+        "wkhtmltopdf",
+        "--margin-top 4",
+        "--margin-bottom 4",
+        "--margin-left 4",
+        "--margin-right 4",
         '--header-center "[webpage] :: [page]/[topage]"',
-        '--header-spacing 1',
-        '--header-font-size 8',
-        '--header-line',
-        '--footer-spacing 1',
-        '--footer-font-size 8',
-        '--footer-line',
+        "--header-spacing 1",
+        "--header-font-size 8",
+        "--header-line",
+        "--footer-spacing 1",
+        "--footer-font-size 8",
+        "--footer-line",
         "#{filename}",
         "#{filename}.pdf",
-        '> /dev/null']
-      _stdin, _stderr, status = Open3.capture3(command.join(' '))
+        "> /dev/null"]
+      _stdin, _stderr, status = Open3.capture3(command.join(" "))
       fail "Problem processing #{filename}" unless status.success?
     end
 
     # Check and verify that the proper softwares are available.
     #
     def softwares_installed?
-      AgileUtils::Helper.which('wkhtmltopdf')
+      AgileUtils::Helper.which("wkhtmltopdf")
     end
   end
 end

@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
-require_relative '../lib/html2pdf'
+require_relative "../lib/html2pdf"
 include Html2Pdf
-Html2Pdf::CLI.start(ARGV)
+if ARGV.empty?
+  Html2Pdf::CLI.start(%w[usage])
+else
+  Html2Pdf::CLI.start(%w[export].concat(ARGV))
+end

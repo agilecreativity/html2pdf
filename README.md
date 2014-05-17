@@ -39,7 +39,7 @@ Which should give the following output
 
 ```
 Usage:
-html2pdf export [OPTIONS]
+html2pdf
 
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
@@ -54,7 +54,7 @@ Options:
 - Convert all `xhtml` and `html` from `test/fixtures/samples` directory
   recursively
 ```
-html2pdf export -b test/fixtures/samples -r
+html2pdf -b test/fixtures/samples -r
 ```
 Before the run
 ```
