@@ -19,10 +19,9 @@ module Html2Pdf
         puts "You are using Html2Pdf version #{Html2Pdf::VERSION}"
         exit
       end
-
       input_files = CodeLister.files base_dir: opts[:base_dir],
                                      exts: %w[html xhtml],
-                                     recursive: true
+                                     recursive: opts[:recursive]
       elapsed = AgileUtils::FileUtil.time do
         Html2Pdf.to_pdfs(input_files)
       end

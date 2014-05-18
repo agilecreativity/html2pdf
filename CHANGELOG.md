@@ -1,5 +1,10 @@
 ### Html2Pdf - Changelogs
 
+#### 0.1.3
+
+- Respect the `--recursive` options
+- Add the missing require `minitest` in test_helper.rb
+
 #### 0.1.2
 
 - Simplify the CLI
