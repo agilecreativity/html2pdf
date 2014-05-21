@@ -19,10 +19,16 @@ module Html2Pdf
         puts "You are using Html2Pdf version #{Html2Pdf::VERSION}"
         exit
       end
-      input_files = CodeLister.files base_dir: opts[:base_dir],
+
+      # Always expand path so that the '.' or '~' will work if specified
+      base_dir = File.expand_path(opts[:base_dir])
+      input_files = CodeLister.files base_dir: base_dir,
                                      exts: %w[html xhtml],
                                      recursive: opts[:recursive]
       elapsed = AgileUtils::FileUtil.time do
+        # Change the directory to the base diretory as the input_files is always
+        # start with '.' relative to the base_dir
+        FileUtils.cd(base_dir)
         Html2Pdf.to_pdfs(input_files)
       end
 

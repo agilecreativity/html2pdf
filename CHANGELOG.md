@@ -1,5 +1,9 @@
 ### Html2Pdf - Changelogs
 
+#### 0.1.4
+
+- Make the `--base-dir` works properly with the relative directory that is not '.'
+
 #### 0.1.3
 
 - Respect the `--recursive` options
