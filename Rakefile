@@ -1,8 +1,6 @@
 require "bundler/gem_tasks"
 require "rake/testtask"
-
 project_name = "html2pdf"
-
 Rake::TestTask.new do |t|
   t.libs << "lib/#{project_name}"
   t.test_files = FileList["test/lib/#{project_name}/test_*.rb"]

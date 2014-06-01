@@ -32,7 +32,7 @@ module Html2Pdf
         Html2Pdf.to_pdfs(input_files)
       end
 
-      generated_files = AgileUtils::FileUtil.add_suffix(input_files, "pdf")
+      generated_files = add_suffix(input_files, "pdf")
       AgileUtils::FileUtil.tar_gzip_files(generated_files, "html2pdf-output.tar.gz")
       AgileUtils::FileUtil.delete(generated_files)
 
@@ -50,7 +50,7 @@ Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
                                            # Default: . (current directory)
   -r, [--recursive], [--no-recursive]      # Search for files recursively
-                                           # Default: true
+                                           # Default: --recursive
   -v, [--version], [--no-version]          # Display version information
 
 export multiple html files to pdfs
@@ -58,5 +58,17 @@ export multiple html files to pdfs
     end
 
     default_task :usage
+
+  private
+
+    # Add suffix to each extensions
+    #
+    # @param [Array<String>] extensions list of extension
+    # @param [String] suffix the suffix string
+    #
+    # @return [Array<String>] new list with the suffix added to each element
+    def add_suffix(extensions = [], suffix)
+      extensions.map { |e| "#{e}.#{suffix}" }
+    end
   end
 end

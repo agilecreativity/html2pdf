@@ -1,4 +1,8 @@
-### Html2Pdf - Changelogs
+### Changelogs for html2pdf
+
+#### 0.1.5
+
+- Minor code cleanup
 
 #### 0.1.4
 

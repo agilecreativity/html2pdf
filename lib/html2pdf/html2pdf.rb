@@ -1,7 +1,6 @@
 require "open3"
 require "fileutils"
 require_relative "../html2pdf"
-
 module Html2Pdf
   class << self
     # Batch convert to pdf using `wkhtmltopdf` tool
@@ -20,6 +19,7 @@ module Html2Pdf
     # @param filename input filename
     def to_pdf(filename)
       fail "Invalid input file #{filename}" unless File.exist?(filename)
+      # TODO: allow custom configuration
       command = [
         "wkhtmltopdf",
         "--margin-top 4",
@@ -40,8 +40,7 @@ module Html2Pdf
       fail "Problem processing #{filename}" unless status.success?
     end
 
-    # Check and verify that the proper softwares are available.
-    #
+    # Check and return if the 'wkhtmltopdf' is available
     def softwares_installed?
       AgileUtils::Helper.which("wkhtmltopdf")
     end
