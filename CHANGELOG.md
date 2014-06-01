@@ -1,5 +1,9 @@
 ### Changelogs for html2pdf
 
+#### 0.1.6
+
+- Make use of the starting directory in the output filename
+
 #### 0.1.5
 
 - Minor code cleanup

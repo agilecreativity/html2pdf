@@ -31,13 +31,12 @@ module Html2Pdf
         FileUtils.cd(base_dir)
         Html2Pdf.to_pdfs(input_files)
       end
-
       generated_files = add_suffix(input_files, "pdf")
-      AgileUtils::FileUtil.tar_gzip_files(generated_files, "html2pdf-output.tar.gz")
+      output_file = "html2pdf_#{File.basename(File.expand_path(base_dir))}.tar.gz"
+      AgileUtils::FileUtil.tar_gzip_files(generated_files, output_file)
       AgileUtils::FileUtil.delete(generated_files)
-
       puts "Convert files to pdfs took #{elapsed} ms"
-      puts "Your final output is #{File.absolute_path("html2pdf-output.tar.gz")}"
+      puts "Your final output is '#{File.absolute_path(output_file)}'"
     end
 
     desc "usage", "Display usage information"

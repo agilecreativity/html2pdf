@@ -67,7 +67,7 @@ test/fixtures/samples/
 ```
 After the above command is executed:
 
-You should get the output `html2pdf-output.tar.gz`
+You should get the output `html2pdf_samples.tar.gz`
 which contain the pdf version of the input files above.
 e.g.
 
