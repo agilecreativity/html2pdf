@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 require_relative "../lib/html2pdf"
-include Html2Pdf
+# If you like to customize the settings for `wkhtmltopdf` then
+# edit the file `config/initializers/html2pdf.rb` and enable it in the next 2 lines
+# -----------------------------------------------------------------#
+# require_relative "../config/initializers/html2pdf"
+# Html2Pdf.update_config
+# -----------------------------------------------------------------#
 if ARGV.empty?
   Html2Pdf::CLI.start(%w[usage])
 else

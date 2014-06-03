@@ -1,5 +1,11 @@
 ### Changelogs for html2pdf
 
+#### 0.1.7
+
+- Add `--disable-smart-shrinking` option in wkhtmltopdf
+- Update `rubocop` to 0.23.x version
+- Allow the customization through configuration
+
 #### 0.1.6
 
 - Make use of the starting directory in the output filename

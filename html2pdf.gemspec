@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q(Export list of html or xhtml files to pdfs with 'wkhtmltopdf')
   spec.homepage      = "https://github.com/agilecreativity/html2pdf"
   spec.license       = "MIT"
-  spec.files         = Dir.glob("{bin,lib}/**/*") + %w[Gemfile
+  spec.files         = Dir.glob("{bin,lib,config}/**/*") + %w[Gemfile
                                                        Rakefile
                                                        html2pdf.gemspec
                                                        README.md
@@ -35,6 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-spec-context", "~> 0.0.3"
   spec.add_development_dependency "pry", "~> 0.9"
   spec.add_development_dependency "rake", "~> 10.1"
-  spec.add_development_dependency "rubocop", "~> 0.20"
+  spec.add_development_dependency "rubocop", "~> 0.23"
   spec.add_development_dependency "yard", "~> 0.8"
 end

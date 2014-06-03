@@ -4,6 +4,7 @@ require "fileutils"
 require_relative "../html2pdf"
 module Html2Pdf
   class CLI < Thor
+    # rubocop:disable AmbiguousOperator, MethodLength
     desc "export", "export multiple html files to pdfs"
     method_option *AgileUtils::Options::BASE_DIR
     method_option *AgileUtils::Options::RECURSIVE
@@ -38,6 +39,7 @@ module Html2Pdf
       puts "Convert files to pdfs took #{elapsed} ms"
       puts "Your final output is '#{File.absolute_path(output_file)}'"
     end
+    # rubocop:enable All
 
     desc "usage", "Display usage information"
     def usage

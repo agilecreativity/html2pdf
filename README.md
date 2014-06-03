@@ -18,12 +18,7 @@ Note: starting from version `0.1.0` this gem will be release based on [Semantic 
 
 - [wkhtmltopdf][] - please see [wkhtmltopdf installation][] for detail
 
-### Dependencies
-
-- wkhtmltopdf (Linux/OSX)
-- OSX or Linux
-
-## Usage
+### Usage
 
 ```sh
 gem install html2pdf
@@ -91,6 +86,80 @@ the pdf version of it.
 
 - Then combine the generated pdf files using [pdfs2pdf][] gem to produce one pdf file
 
+### Customization
+
+If you like to adjust the output for pdf you can override the default settings by
+set your own configuration in the file `config/initializers/html2pdf.rb`
+
+For more customization please see the [wkhtmltopdf manual][] page for detail.
+
+```ruby
+require_relative "../../lib/html2pdf/configuration"
+module Html2Pdf
+  class << self
+    # rubocop:disable MethodLength
+    def update_config
+      Html2Pdf.configure do |config|
+        # Note: or add your own path here if `wkhtmltopdf` is not in the $PATH environment
+        config.options[:wkhtmltopdf]   = (defined?(Bundler::GemfileError) ? `bundle exec which wkhtmltopdf` : `which wkhtmltopdf`).chomp
+        config.options[:page_settings] = [
+          "--margin-top 8",
+          "--margin-bottom 8",
+          "--margin-left 8",
+          "--margin-right 8",
+          '--header-center "[webpage] :: [page]/[topage]"',
+          "--header-spacing 1",
+          "--header-font-size 8",
+          "--header-line",
+          "--footer-spacing 1",
+          "--footer-font-size 8",
+          "--footer-line"
+        ]
+      end
+    end
+    # rubocop:enable All
+  end
+end
+```
+
+You can use the custom settings by loading it in the `bin/html2pdf` like:
+
+```ruby
+#!/usr/bin/env ruby
+require_relative "../lib/html2pdf"
+# Note: if you like to customize the settings for `wkhtmltopdf` then
+# uncomment the next two lines
+# -----------------------------------------------------------------#
+require_relative "../config/initializers/html2pdf"
+Html2Pdf.update_config
+# -----------------------------------------------------------------#
+if ARGV.empty?
+  Html2Pdf::CLI.start(%w[usage])
+else
+  Html2Pdf::CLI.start(%w[export].concat(ARGV))
+end
+```
+
+Note: by default the above configuration is configured in
+the file `./lib/html2pdf/configuration.rb`. Which contain the following values
+
+```ruby
+wkhtmltopdf = (defined?(Bundler::GemfileError) ? `bundle exec which wkhtmltopdf` : `which wkhtmltopdf`).chomp,
+page_settings = [
+  "--margin-top 4",
+  "--margin-bottom 4",
+  "--margin-left 4",
+  "--margin-right 4",
+  '--header-center "[webpage] :: [page]/[topage]"',
+  "--header-spacing 1",
+  "--header-font-size 8",
+  "--header-line",
+  "--footer-spacing 1",
+  "--footer-font-size 8",
+  "--footer-line"
+]
+```
+
 ### Contributing
 
 1. Fork it ( http://github.com/agilecreativity/html2pdf/fork )
@@ -103,4 +172,5 @@ the pdf version of it.
 [pdfs2pdf]: https://github.com/agilecreativity/pdfs2pdf
 [wkhtmltopdf]: http://wkhtmltopdf.org/
 [wkhtmltopdf installation]: https://github.com/pdfkit/pdfkit/wiki/Installing-WKHTMLTOPDF
+[wkhtmltopdf manual]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
 [Semantic Versioning]: http://semver.org
