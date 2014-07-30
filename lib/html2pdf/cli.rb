@@ -4,6 +4,8 @@ require "fileutils"
 require_relative "../html2pdf"
 module Html2Pdf
   class CLI < Thor
+    using AgileUtils::HashExt
+
     # rubocop:disable AmbiguousOperator, MethodLength
     desc "export", "export multiple html files to pdfs"
     method_option *AgileUtils::Options::BASE_DIR

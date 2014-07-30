@@ -1,5 +1,11 @@
 ### Changelogs for html2pdf
 
+#### 0.2.0
+
+- Make use of refinement instead of monkeypatching gem
+- Only support for 2.0.x+
+- Misc cleanup
+
 #### 0.1.7
 
 - Add `--disable-smart-shrinking` option in wkhtmltopdf
