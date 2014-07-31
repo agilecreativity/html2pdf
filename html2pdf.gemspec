@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q(Bulk export list of html or xhtml files to pdfs with 'wkhtmltopdf')
   spec.description   = %q(Export list of html or xhtml files to pdfs with 'wkhtmltopdf')
   spec.homepage      = "https://github.com/agilecreativity/html2pdf"
+  spec.required_ruby_version = ">= 2.1.0"
   spec.license       = "MIT"
   spec.files         = Dir.glob("{bin,lib,config}/**/*") + %w[Gemfile
                                                               Rakefile
@@ -23,9 +24,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = Dir.glob("{test}/**/*")
   spec.require_paths = ["lib"]
-  spec.add_runtime_dependency "thor", "~> 0.19"
-  spec.add_runtime_dependency "agile_utils", "~> 0.2.0"
-  spec.add_runtime_dependency "code_lister", "~> 0.2.0"
+
+  spec.add_runtime_dependency "thor", "~> 0.19.1"
+  spec.add_runtime_dependency "agile_utils", "~> 0.2.1"
+  spec.add_runtime_dependency "code_lister", "~> 0.2.1"
+
   spec.add_development_dependency "awesome_print", "~> 1.2.0"
   spec.add_development_dependency "bundler", "~> 1.6.2"
   spec.add_development_dependency "gem-ctags", "~> 1.0.6"

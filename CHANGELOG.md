@@ -1,9 +1,13 @@
 ### Changelogs for html2pdf
 
+#### 0.2.1
+
+- Make ruby 2.1.0+ a mandatory
+
 #### 0.2.0
 
 - Make use of refinement instead of monkeypatching gem
-- Only support for 2.0.x+
+- Only support for 2.1.x+
 - Misc cleanup
 
 #### 0.1.7
