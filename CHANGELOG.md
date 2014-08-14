@@ -1,5 +1,10 @@
 ### Changelogs for html2pdf
 
+#### 0.2.2
+
+- Support ruby 1.9.3+
+- Misc code cleanup
+
 #### 0.2.1
 
 - Make ruby 2.1.0+ a mandatory
