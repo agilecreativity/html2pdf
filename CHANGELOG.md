@@ -1,4 +1,7 @@
 ### Changelogs for html2pdf
+#### 0.2.3
+
+- Update bundler to 1.7.3
 
 #### 0.2.2
 
