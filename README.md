@@ -89,12 +89,11 @@ the pdf version of it.
 ### Customization
 
 If you like to adjust the output for pdf you can override the default settings by
-set your own configuration in the file `config/initializers/html2pdf.rb`
+set your own configuration in the file `lib/html2pdf/config/html2pdf.rb`
 
 For more customization please see the [wkhtmltopdf manual][] page for detail.
 
 ```ruby
-require_relative "../../lib/html2pdf/configuration"
 module Html2Pdf
   class << self
     # rubocop:disable MethodLength
@@ -120,44 +119,6 @@ module Html2Pdf
     # rubocop:enable All
   end
 end
-```
-
-You can use the custom settings by loading it in the `bin/html2pdf` like:
-
-```ruby
-#!/usr/bin/env ruby
-require_relative "../lib/html2pdf"
-# Note: if you like to customize the settings for `wkhtmltopdf` then
-# uncomment the next two lines
-# -----------------------------------------------------------------#
-require_relative "../config/initializers/html2pdf"
-Html2Pdf.update_config
-# -----------------------------------------------------------------#
-if ARGV.empty?
-  Html2Pdf::CLI.start(%w[usage])
-else
-  Html2Pdf::CLI.start(%w[export].concat(ARGV))
-end
-```
-
-Note: by default the above configuration is configured in
-the file `./lib/html2pdf/configuration.rb`. Which contain the following values
-
-```ruby
-wkhtmltopdf = (defined?(Bundler::GemfileError) ? `bundle exec which wkhtmltopdf` : `which wkhtmltopdf`).chomp,
-page_settings = [
-  "--margin-top 4",
-  "--margin-bottom 4",
-  "--margin-left 4",
-  "--margin-right 4",
-  '--header-center "[webpage] :: [page]/[topage]"',
-  "--header-spacing 1",
-  "--header-font-size 8",
-  "--header-line",
-  "--footer-spacing 1",
-  "--footer-font-size 8",
-  "--footer-line"
-]
 ```
 
 ### Contributing

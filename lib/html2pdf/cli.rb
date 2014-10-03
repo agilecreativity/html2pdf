@@ -1,7 +1,3 @@
-require "thor"
-require "tmpdir"
-require "fileutils"
-require_relative "../html2pdf"
 module Html2Pdf
   class CLI < Thor
     # rubocop:disable AmbiguousOperator, MethodLength

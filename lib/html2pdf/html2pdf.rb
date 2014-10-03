@@ -1,7 +1,3 @@
-require "open3"
-require "fileutils"
-require_relative "../html2pdf"
-require_relative "./configuration"
 module Html2Pdf
   class << self
     # Batch convert to pdf using `wkhtmltopdf` tool

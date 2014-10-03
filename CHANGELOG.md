@@ -1,4 +1,10 @@
 ### Changelogs for html2pdf
+
+#### 0.2.4
+
+- Use `require` instead of `require_relative`
+- Misc code cleanup
+
 #### 0.2.3
 
 - Update bundler to 1.7.3

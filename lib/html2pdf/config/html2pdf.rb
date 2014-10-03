@@ -1,4 +1,3 @@
-require_relative "../../lib/html2pdf/configuration"
 module Html2Pdf
   class << self
     # Customize the configuration for specific system (Ubuntu/OSX/etc)
