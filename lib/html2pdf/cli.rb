@@ -6,7 +6,7 @@ module Html2Pdf
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
     def export
-      opts = options.symbolize_keys
+      opts = options.deep_symbolize_keys
 
       unless Html2Pdf.softwares_installed?
         fail "You must have valid `wkhtmltopdf` installation"

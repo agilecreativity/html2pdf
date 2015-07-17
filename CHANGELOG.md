@@ -1,5 +1,10 @@
 ### Changelogs for html2pdf
 
+#### 0.2.5
+
+- Use optimistic versioning in gemspec
+- Update gem's dependencies
+
 #### 0.2.4
 
 - Use `require` instead of `require_relative`
